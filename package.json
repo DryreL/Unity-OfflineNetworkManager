@@ -1,0 +1,16 @@
+{
+  "name": "com.dryrelhub.unity.offlinenetworkmanager",
+  "version": "1.0.0",
+  "displayName": "Offline Network Manager",
+  "description": "A simple network manager for Unity to check if the user is online or offline.",
+  "unity": "2021.2",
+  "keywords": [
+    "network",
+    "offline",
+    "manager",
+    "utility"
+  ],
+  "author": {
+    "name": "DryreL Hub"
+  }
+}

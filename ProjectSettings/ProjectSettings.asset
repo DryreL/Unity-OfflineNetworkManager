@@ -811,11 +811,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 42f612af-d615-4706-9fde-cf147dfccb9c
+  cloudProjectId: 4ba43840-e66e-4d56-bd4f-74b1c67b6db4
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: HellasureRemake
-  organizationId: viznity-games
+  projectName: Unity-OfflineNetworkManager
+  organizationId: dryrel-as-publisher
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}

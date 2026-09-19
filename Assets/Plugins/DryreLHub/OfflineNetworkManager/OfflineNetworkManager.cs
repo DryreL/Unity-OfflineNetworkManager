@@ -66,12 +66,16 @@ public class OfflineNetworkManager : MonoBehaviour
     /// Gets the singleton instance of OfflineNetworkManager.
     /// Automatically creates an instance if one doesn't exist.
     /// </summary>
+    private static bool applicationIsQuitting = false;
+    
     public static OfflineNetworkManager Instance
     {
         get
         {
             if (instance == null)
             {
+                if (applicationIsQuitting) { return null; }
+                
                 // Try to find existing instance in scene
                 instance = FindFirstObjectByType<OfflineNetworkManager>();
                 
@@ -286,6 +290,11 @@ public class OfflineNetworkManager : MonoBehaviour
             // Suppress errors during scene cleanup
             Debug.LogWarning($"[OfflineNetworkManager] Exception during OnDestroy: {ex.Message}");
         }
+    }
+
+    void OnApplicationQuit()
+    {
+        applicationIsQuitting = true;
     }
 
     /// <summary>

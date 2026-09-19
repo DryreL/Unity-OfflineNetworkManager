@@ -2,15 +2,29 @@
   "name": "com.dryrelhub.unity.offlinenetworkmanager",
   "version": "1.0.0",
   "displayName": "Offline Network Manager",
-  "description": "A simple network manager for Unity to check if the user is online or offline.",
+  "description": "A robust singleton manager for detecting and handling internet connectivity changes in Unity applications with adaptive interval checking.",
   "unity": "2021.2",
+  "type": "library",
   "keywords": [
     "network",
     "offline",
+    "connectivity",
     "manager",
-    "utility"
+    "utility",
+    "dryrel"
   ],
   "author": {
-    "name": "DryreL Hub"
+    "name": "DryreL Hub",
+    "url": "https://github.com/DryreL"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DryreL/Unity-OfflineNetworkManager.git",
+    "directory": "Assets/Plugins/DryreLHub/OfflineNetworkManager"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.2"
   }
 }
+

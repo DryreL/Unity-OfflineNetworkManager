@@ -19,9 +19,64 @@ A robust singleton manager for detecting and handling internet connectivity chan
 
 ## Installation
 
-1. Copy the `OfflineNetworkManager` folder to your project's `Assets/Plugins/DryreLHub/` directory
-2. Unity will automatically recognize the plugin and configure it for all platforms
-3. The manager initializes automatically - no manual setup required
+### Option 1: Unity Package Manager (Recommended)
+
+#### A. As a Dependency in Another Package / Plugin
+To use **Offline Network Manager** as a dependency in your own Unity package or plugin, add it to your package's `package.json`:
+
+```json
+{
+  "name": "com.yourcompany.yourplugin",
+  "version": "1.0.0",
+  "dependencies": {
+    "com.dryrelhub.unity.offlinenetworkmanager": "https://github.com/DryreL/Unity-OfflineNetworkManager.git?path=/Assets/Plugins/DryreLHub/OfflineNetworkManager"
+  }
+}
+```
+*(Optional) You can also pin to a specific release tag or commit by appending `#v1.0.0` or use `#upm` branch:*
+```json
+"com.dryrelhub.unity.offlinenetworkmanager": "https://github.com/DryreL/Unity-OfflineNetworkManager.git?path=/Assets/Plugins/DryreLHub/OfflineNetworkManager#v1.0.0"
+```
+
+#### Assembly Definition (`.asmdef`) Reference
+If your plugin uses Assembly Definitions, add `DryreLHub.OfflineNetworkManager` to your `.asmdef` references:
+
+```json
+{
+  "name": "YourPlugin.Runtime",
+  "references": [
+    "DryreLHub.OfflineNetworkManager"
+  ]
+}
+```
+
+#### B. Direct Project Install via `Packages/manifest.json`
+Open your project's `Packages/manifest.json` and add the dependency to the `"dependencies"` object:
+
+```json
+{
+  "dependencies": {
+    "com.dryrelhub.unity.offlinenetworkmanager": "https://github.com/DryreL/Unity-OfflineNetworkManager.git?path=/Assets/Plugins/DryreLHub/OfflineNetworkManager",
+    ...
+  }
+}
+```
+
+#### C. Via Unity Editor UI
+1. In the Unity Editor, open **Window** > **Package Manager**.
+2. Click the **+** (add) button in the status bar and select **Add package from git URL...**
+3. Paste the following URL and click **Add**:
+   ```text
+   https://github.com/DryreL/Unity-OfflineNetworkManager.git?path=/Assets/Plugins/DryreLHub/OfflineNetworkManager
+   ```
+
+---
+
+### Option 2: Manual Installation (Legacy)
+
+1. Copy the `OfflineNetworkManager` folder into your project's `Assets/Plugins/DryreLHub/` directory.
+2. Ensure `Newtonsoft.Json` (`com.unity.nuget.newtonsoft-json`) is installed via Package Manager.
+3. The manager initializes automatically — no manual setup required.
 
 ## Quick Start
 

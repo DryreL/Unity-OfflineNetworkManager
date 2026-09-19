@@ -1,0 +1,47 @@
+name: Update UPM Branch
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "Assets/Plugins/DryreLHub/OfflineNetworkManager/**"
+      - ".github/workflows/upm.yml"
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+concurrency:
+  group: upm-branch
+  cancel-in-progress: false
+
+jobs:
+  split-upm:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Git Config
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Split and Push UPM Branch
+        env:
+          PKG_PATH: Assets/Plugins/DryreLHub/OfflineNetworkManager
+        run: |
+          git branch -d upm &> /dev/null || true
+          git subtree split --prefix="$PKG_PATH" --branch upm
+          git push -u origin upm --force
+
+      - name: Tag UPM Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          TAG_NAME="${GITHUB_REF#refs/tags/}"
+          git tag -f "upm-$TAG_NAME" upm
+          git push origin "upm-$TAG_NAME" --force

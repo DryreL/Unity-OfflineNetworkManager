@@ -1,3 +1,7 @@
+<p align="center">
+  <img src=".github/icon.png" width="128" height="128" alt="Offline Network Manager icon">
+</p>
+
 # Offline Network Manager
 
 ![Banner](Assets/Sprites/PF_OfflineNetworkManager.png)
